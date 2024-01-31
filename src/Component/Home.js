@@ -12,10 +12,13 @@ export default function Home(props) {
   }
   const handleUpperCase=()=>{
     setResult(text.toUpperCase());
+    props.showAlert('success','Text converted to uppercase successfully');
   };
 
   const handleLowerCase=()=>{
     setResult(text.toLowerCase());
+    props.showAlert('success','Text converted to lowercase successfully');
+
   };
 
   const handleCapitalCase=()=>{
@@ -23,6 +26,7 @@ export default function Home(props) {
         return str.charAt(0).toUpperCase() +''+ str.slice(1).toLowerCase() +' ';
     });
     setResult(capitalCase);
+    props.showAlert('success','Text converted to capitalcase successfully');
   };
 
   const handleInverseCase=()=>{
@@ -30,12 +34,12 @@ export default function Home(props) {
         return str.charAt(0).toLowerCase() +''+str.slice(1).toUpperCase();
     });
     setResult(InverseCase);
+    props.showAlert('success','Text converted to inversecase successfully')
   };
 
   const handleAlternativeCase=()=>{
     let AlternativeCase=text.split(' ').map(str=>{
         let strCase=str.split('').map((chr,index)=>{
-            alert(chr);
             if(index%2===0){
                 return chr.toUpperCase();
             }else{
@@ -45,22 +49,26 @@ export default function Home(props) {
         return strCase;
     });
     setResult(AlternativeCase);
+    props.showAlert('success','Text converted to alternative successfully')
   };
 
   const handleCopy=()=>{
     var textAnalysis=document.getElementById('textAnalysis');
     textAnalysis.select();
     navigator.clipboard.writeText(textAnalysis.value);
+    props.showAlert('success','Text copied successfully')
  }
 
  const handleRemoveXtraSpace=()=>{
     let data=text.split(/[ ]+/);
     setResult(data.join(" "));
+    props.showAlert('success','Extra space is removed successfully')
  };
 
  const handleClear=()=>{
     setResult('');
     setText('');
+    props.showAlert('success','Textbox cleared successfully')
  }
  
  return (
