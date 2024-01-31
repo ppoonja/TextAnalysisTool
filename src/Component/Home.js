@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import TextAnalysisOutput from '../TextAnalysisOutput';
+import TextAnalysisOutput from './TextAnalysisOutput';
 import { Navigate, NavigationType, useNavigation } from 'react-router-dom';
 
 
